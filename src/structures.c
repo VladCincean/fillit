@@ -60,12 +60,3 @@ int			vector_push_back(t_vector *v, t_tetrimino t)
 	v->size++;
 	return (1);
 }
-
-t_point		point(int x, int y)
-{
-	t_point p;
-
-	p.x = x;
-	p.y = y;
-	return (p);
-}
