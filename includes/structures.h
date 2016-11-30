@@ -7,11 +7,12 @@ typedef struct	s_tetrimino
 	char	letter;
 }				t_tetrimino;
 
-typedef struct	s_tetr_vector
+typedef struct	s_vector
 {
 	t_tetrimino	*array;
 	int			size;
-}				t_tetr_vector;
+	int			capacity;
+}				t_vector;
 
 typedef struct	s_solution
 {
