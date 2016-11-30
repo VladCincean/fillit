@@ -20,4 +20,10 @@ typedef struct	s_solution
 	int		n;
 }				t_solution;
 
+typedef struct	s_point
+{
+	int	x;
+	int	y;
+}				t_point;
+
 #endif

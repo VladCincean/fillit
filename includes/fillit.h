@@ -1,9 +1,12 @@
 #ifndef FILLIT_H
 # define FILLIT_H
+# define CHAR_NULL '\0'
+# define CHAR_DOT '.'
+# define CHAR_HASH '#'
 # include "structures.h"
 
 /*
-**	Defined in structures.c
+ **	Defined in structures.c
  */
 
 t_solution	*solution_init(int n);
@@ -13,15 +16,46 @@ void		vector_destroy(t_vector *v);
 int			vector_push_back(t_vector *v, t_tetrimino t);
 
 /*
-**	Defined in ...
+ **	Defined in reader.c
  */
 
-// ...
+//...
 
 /*
-**	Defined in main.c
+ **	Defined in solver.c
  */
 
-void 		ft_error();
+t_solution	*solve(t_vector *v);
+
+/*
+ **	Defined in solver_utils.c
+ */
+
+int			get_height(t_tetrimino t);
+int			get_width(t_tetrimino t);
+int			has_conflicts(t_solution *sol, t_tetrimino t, int x, int y);
+void		put_tetrimino(t_solution *sol, t_tetrimino t, int x, int y);
+void		del_tetrimino(t_solution *sol, t_tetrimino t, int x, int y);
+
+/*
+ **	Defined in printer.c
+ */
+
+//...
+
+/*
+ **	Defined in string_functions.h
+ */
+
+void		*ft_memset(void *s, int c, unsigned int n);
+void		ft_putstr(char *s);
+int			ft_strlen(char *s);
+
+/*
+ **	Defined in main.c
+ */
+
+void 		f_error();
+void		f_usage(char *argv0);
 
 #endif
