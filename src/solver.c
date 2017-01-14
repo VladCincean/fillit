@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solver.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/14 11:56:13 by vcincean          #+#    #+#             */
+/*   Updated: 2017/01/14 11:59:41 by vcincean         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 static int	do_solve(t_solution *sol, t_tetrimino *v)
@@ -29,7 +41,7 @@ static int	do_solve(t_solution *sol, t_tetrimino *v)
 	return (0);
 }
 
-t_solution*	solve(t_vector *v)
+t_solution	*solve(t_vector *v)
 {
 	t_solution	*sol;
 	int			size;

@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/14 11:55:11 by vcincean          #+#    #+#             */
+/*   Updated: 2017/01/14 11:58:23 by vcincean         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h> // open
-#include <sys/stat.h>  // open
-#include <fcntl.h>     // open
+#include <fcntl.h>
 
-void	f_error()
+void	f_error(void)
 {
 	ft_putstr("error\n");
 	exit(1);
