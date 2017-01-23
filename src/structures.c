@@ -6,7 +6,7 @@
 /*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 11:56:49 by vcincean          #+#    #+#             */
-/*   Updated: 2017/01/14 11:56:54 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/01/23 14:47:39 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_solution	*solution_init(int n)
 	int			i;
 
 	sol = (t_solution*)malloc(sizeof(t_solution));
+	if (NULL == sol)
+		return (NULL);
 	sol->n = n;
 	sol->matrix = (char**)malloc(sizeof(char*) * n);
 	i = -1;

@@ -6,11 +6,12 @@
 /*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 11:56:13 by vcincean          #+#    #+#             */
-/*   Updated: 2017/01/14 11:59:41 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/01/23 15:17:54 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdlib.h>
 
 static int	do_solve(t_solution *sol, t_tetrimino *v)
 {
@@ -41,17 +42,33 @@ static int	do_solve(t_solution *sol, t_tetrimino *v)
 	return (0);
 }
 
+static int	floor_sqrt(int n)
+{
+	int sqrt;
+
+	sqrt = 1;
+	while (sqrt * sqrt <= n)
+	{
+		if (sqrt * sqrt == n)
+			return (sqrt);
+		if (sqrt * sqrt > n)
+			return (sqrt - 1);
+		sqrt++;
+	}
+	return (1);
+}
+
 t_solution	*solve(t_vector *v)
 {
 	t_solution	*sol;
 	int			size;
 
-	size = 2; // TODO: use a known lower-bound
-	sol = 0;  // i.e. sol = NULL;
+	size = floor_sqrt(v->size);
+	sol = NULL;
 	while (1)
 	{
 		sol = solution_init(size);
-		if (do_solve(sol, v->array))
+		if (sol == NULL || do_solve(sol, v->array) == 0)
 			break ;
 		solution_destroy(sol);
 		size++;

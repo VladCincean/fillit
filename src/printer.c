@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structures.h                                       :+:      :+:    :+:   */
+/*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/14 11:55:00 by vcincean          #+#    #+#             */
-/*   Updated: 2017/01/23 13:38:12 by vcincean         ###   ########.fr       */
+/*   Created: 2017/01/23 15:02:41 by vcincean          #+#    #+#             */
+/*   Updated: 2017/01/23 15:06:38 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// NO MORE NEED
+#include "fillit.h"
 
-/*
-#ifndef STRUCTURES_H
-# define STRUCTURES_H
-
-typedef struct	s_tetrimino
+void	print_solution(t_solution *sol)
 {
-	char	t[4][4];
-	char	letter;
-}				t_tetrimino;
+	int	i;
 
-typedef struct	s_vector
-{
-	t_tetrimino	*array;
-	int			size;
-	int			capacity;
-}				t_vector;
-
-typedef struct	s_solution
-{
-	char	**matrix;
-	int		n;
-}				t_solution;
-
-#endif
-*/
+	i = 0;
+	while (i < sol->n)
+	{
+		ft_putstr_fd(sol->matrix[i], 1);
+		i++;
+	}
+}
