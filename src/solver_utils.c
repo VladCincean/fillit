@@ -6,7 +6,7 @@
 /*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 11:56:28 by vcincean          #+#    #+#             */
-/*   Updated: 2017/01/14 11:56:32 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/01/31 11:58:51 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ int		has_conflicts(t_solution *sol, t_tetrimino t, int x, int y)
 	height = get_height(t);
 	width = get_width(t);
 	i = 0;
-	while (i < width)
+	while (i < height)
 	{
 		j = 0;
-		while (j < height)
+		while (j < width)
 		{
 			if (t.t[i][j] == CHAR_HASH && sol->matrix[x + i][y + j] != CHAR_DOT)
 				return (1);
@@ -96,10 +96,10 @@ void	put_tetrimino(t_solution *sol, t_tetrimino t, int x, int y)
 	height = get_height(t);
 	width = get_width(t);
 	i = 0;
-	while (i < width)
+	while (i < height)
 	{
 		j = 0;
-		while (j < height)
+		while (j < width)
 		{
 			if (t.t[i][j] == CHAR_HASH)
 				sol->matrix[x + i][y + j] = t.letter;
@@ -119,10 +119,10 @@ void	del_tetrimino(t_solution *sol, t_tetrimino t, int x, int y)
 	height = get_height(t);
 	width = get_width(t);
 	i = 0;
-	while (i < width)
+	while (i < height)
 	{
 		j = 0;
-		while (j < height)
+		while (j < width)
 		{
 			if (t.t[i][j] == CHAR_HASH)
 				sol->matrix[x + i][y + j] = CHAR_DOT;

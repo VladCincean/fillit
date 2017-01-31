@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arrange.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apeculea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/20 11:50:24 by apeculea          #+#    #+#             */
+/*   Updated: 2017/01/31 11:04:10 by vcincean         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 static void	up(char tetr[5][5])
@@ -5,8 +17,8 @@ static void	up(char tetr[5][5])
 	char	tmp;
 	int		i;
 
-	i = 0;
-	while (i++ < 4)
+	i = -1;
+	while (++i < 4)
 	{
 		tmp = tetr[0][i];
 		tetr[0][i] = tetr[1][i];
@@ -21,8 +33,8 @@ static void	left(char tetr[5][5])
 	char	tmp;
 	int		i;
 
-	i = 0;
-	while (i++ < 4)
+	i = -1;
+	while (++i < 4)
 	{
 		tmp = tetr[i][0];
 		tetr[i][0] = tetr[i][1];
