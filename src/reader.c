@@ -6,7 +6,7 @@
 /*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 13:52:04 by vcincean          #+#    #+#             */
-/*   Updated: 2017/01/31 13:08:53 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/02/05 13:31:13 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	read_file(int fd, t_vector *v)
 	{
 		arrange_tetris(&t);
 		//TODO: make validator work
-//		if (validate_tetris(&t) == 0)
-//		{
-//			vector_destroy(v);
-//			f_error();
-//		}
+		if (validate_tetris(&t) == 0)
+		{
+			vector_destroy(v);
+			f_error();
+		}
 		t.letter = letter++;
 		vector_push_back(v, t);
 	}
