@@ -6,7 +6,7 @@
 /*   By: apeculea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:50:24 by apeculea          #+#    #+#             */
-/*   Updated: 2017/01/31 11:04:10 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/02/11 17:45:12 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,29 @@
 
 static void	up(char tetr[5][5])
 {
-	char	tmp;
-	int		i;
+	int		j;
 
-	i = -1;
-	while (++i < 4)
+	j = -1;
+	while (++j < 4)
 	{
-		tmp = tetr[0][i];
-		tetr[0][i] = tetr[1][i];
-		tetr[1][i] = tetr[2][i];
-		tetr[2][i] = tetr[3][i];
-		tetr[3][i] = tmp;
+		tetr[0][j] = tetr[1][j];
+		tetr[1][j] = tetr[2][j];
+		tetr[2][j] = tetr[3][j];
+		tetr[3][j] = '.';
 	}
 }
 
 static void	left(char tetr[5][5])
 {
-	char	tmp;
 	int		i;
 
 	i = -1;
 	while (++i < 4)
 	{
-		tmp = tetr[i][0];
 		tetr[i][0] = tetr[i][1];
 		tetr[i][1] = tetr[i][2];
 		tetr[i][2] = tetr[i][3];
-		tetr[i][3] = tmp;
+		tetr[i][3] = '.';
 	}
 }
 
@@ -56,5 +52,6 @@ static void	up_left(char tetr[5][5])
 
 void		arrange_tetris(t_tetrimino *t)
 {
-	up_left(t->t);
+	if (ft_strchr((const char *)t->t, '#') != 0)
+		up_left(t->t);
 }

@@ -6,20 +6,14 @@
 /*   By: apeculea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:51:21 by apeculea          #+#    #+#             */
-/*   Updated: 2017/02/05 13:51:17 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/02/11 17:40:29 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-//TODO: cazul in care '#'-urile nu sunt unite toate
-//TODO: cazul in care un '#' are un vecin '#' "pe diagonala"
-
-static int	four(char tetr[5][5], int i, int j)
+static int	neighbours(char tetr[5][5], int i, int j)
 {
-//	if ((j && tetr[i][j - 1] != '#') && tetr[i][j + 1] != '#' && (i < 3 &&
-//		tetr[i + 1][j] != '#') && (i && tetr[i - 1][j] != '#'))
-//		return (0); //single #
 	int	count;
 
 	count = 0;
@@ -31,7 +25,9 @@ static int	four(char tetr[5][5], int i, int j)
 		count++;
 	if (i < 3 && tetr[i + 1][j] == '#')
 		count++;
-	return (1 <= count && count <= 3);
+	if (1 <= count && count <= 3)
+		return (count);
+	return (0);
 }
 
 static int	verif(char tetr[5][5])
@@ -39,8 +35,10 @@ static int	verif(char tetr[5][5])
 	int	i;
 	int	j;
 	int	nr;
+	int	adj_count;
 
 	nr = 0;
+	adj_count = 0;
 	i = -1;
 	while (++i < 4)
 	{
@@ -51,11 +49,14 @@ static int	verif(char tetr[5][5])
 		{
 			if (!(tetr[i][j] == '#' || tetr[i][j] == '.'))
 				return (0);
-			if (tetr[i][j] == '#' && four(tetr, i, j) != 0)
-				nr++;
+			if (tetr[i][j] == '#' && neighbours(tetr, i, j) != 0)
+			{
+				nr += 1;
+				adj_count += neighbours(tetr, i, j);
+			}
 		}
 	}
-	return (nr == 4);
+	return (nr == 4 && (adj_count == 6 || adj_count == 8));
 }
 
 int			validate_tetris(t_tetrimino *t)

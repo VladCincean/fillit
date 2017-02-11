@@ -6,7 +6,7 @@
 /*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 11:55:11 by vcincean          #+#    #+#             */
-/*   Updated: 2017/01/31 12:19:11 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/02/11 17:58:47 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	f_error(void)
 {
-	ft_putstr_fd("error\n", 2);
+	ft_putstr_fd("error\n", 1);
 	exit(1);
 }
 
@@ -39,7 +39,7 @@ int		main(int argc, char **argv)
 		f_usage(argv[0]);
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		f_error();
-	v = vector_init(27); // 26 litere + 1
+	v = vector_init(27);
 	read_file(fd, v);
 	close(fd);
 	sol = solve(v);

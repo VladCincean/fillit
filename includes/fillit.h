@@ -6,7 +6,7 @@
 /*   By: vcincean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 11:54:23 by vcincean          #+#    #+#             */
-/*   Updated: 2017/01/31 13:09:38 by vcincean         ###   ########.fr       */
+/*   Updated: 2017/02/11 17:42:03 by vcincean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void			print_solution(t_solution *sol);
 void			*ft_memset(void *s, int c, unsigned int n);
 void			ft_putstr_fd(char *s, int fd);
 int				ft_strlen(char *s);
+char			*ft_strchr(const char *s, int c);
 
 /*
 **	Defined in main.c
